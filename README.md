@@ -18,7 +18,7 @@ The installation is simple, you download and write the code directly from GitHub
 4. Add it to the provider list: `curl -w "\n" https://raw.githubusercontent.com/EmixamPP/synology-ddns-gandi/main/ddns_provider.conf >> /etc.defaults/ddns_provider.conf`
 
 ## Setup
-1. Obtain your Gandi api key from your Gandi account's security page (https://account.gandi.net/fr/users/<username>/security)
+1. Obtain your Gandi api key from your Gandi account's security page
 2. Let your fully qualified domain (fqdn) name be: example.com 
 3. Let the subdomain that you want to redirect be all: @
 4. Then fill the Synology DDNS configuration as follows:
