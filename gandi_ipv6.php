@@ -3,7 +3,7 @@
 // Gandi DNS API documentation can be found here: https://api.gandi.net/docs/livedns/
 
 function update_record($fqdn, $apikey, $rrset_name, $rrset_value, $rrset_type, $verbose)
-{   
+{
     $url = 'https://api.gandi.net/v5/livedns/domains/' . $fqdn . '/records/' . $rrset_name . '/' . $rrset_type;
     $headers = array('Authorization:Apikey ' . $apikey, 'Content-Type:application/json');
     $data = '{"rrset_values": ["' . $rrset_value . '"]}';
@@ -71,6 +71,3 @@ curl_close($req);
 // only for IPv6 format
 if (filter_var($ipv6, FILTER_VALIDATE_IP, FILTER_FLAG_IPV6))
     update_record($fqdn, $apikey, $rrset_name, $ipv6, 'AAAA', false); // IPv6 update is optional, ignore feedback
-
-exit();
-?>

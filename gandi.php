@@ -36,7 +36,7 @@ curl_setopt($req, CURLOPT_POSTFIELDS, $data);
 curl_setopt($req, CURLOPT_RETURNTRANSFER, 1);
 $res = curl_exec($req);
 
-switch(curl_getinfo($req, CURLINFO_HTTP_CODE)) {
+switch (curl_getinfo($req, CURLINFO_HTTP_CODE)) {
     case 0:
         echo 'badresolv';
         break;
@@ -55,6 +55,3 @@ switch(curl_getinfo($req, CURLINFO_HTTP_CODE)) {
 }
 
 curl_close($req);
-
-exit();
-?>
