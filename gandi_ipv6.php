@@ -8,8 +8,7 @@ function update_record($fqdn, $apikey, $rrset_name, $rrset_value, $rrset_type, $
     $headers = array('Authorization:Apikey ' . $apikey, 'Content-Type:application/json');
     $data = '{"rrset_values": ["' . $rrset_value . '"]}';
 
-    $req = curl_init();
-    curl_setopt($req, CURLOPT_URL, $url);
+    $req = curl_init($url);
     curl_setopt($req, CURLOPT_HTTPHEADER, $headers);
     curl_setopt($req, CURLOPT_CUSTOMREQUEST, 'PUT');
     curl_setopt($req, CURLOPT_POSTFIELDS, $data);
@@ -62,8 +61,8 @@ if (!filter_var($ipv4, FILTER_VALIDATE_IP, FILTER_FLAG_IPV4)) {
 }
 update_record($fqdn, $apikey, $rrset_name, $ipv4, 'A', true);
 
-$req = curl_init();
-curl_setopt($req, CURLOPT_URL, "https://api64.ipify.org"); // obtain IPv6 of the default gateway
+$req = curl_init("https://api6.ipify.org"); // obtain IPv6 of the default 
+curl_setopt($req, CURLOPT_CONNECTTIMEOUT, 30);
 curl_setopt($req, CURLOPT_RETURNTRANSFER, 1);
 $ipv6 = curl_exec($req);
 curl_close($req);
