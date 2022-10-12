@@ -13,7 +13,7 @@ The installation is simple, you download and write the code directly from GitHub
 1. Switch to root user: `sudo -s`
 2. Install the module: 
    1. IPv4 only: `curl -w "\n" https://raw.githubusercontent.com/EmixamPP/synology-ddns-gandi/main/gandi.php > /usr/syno/bin/ddns/gandi.php`
-   2. IPv4 + IPv6: `curl https://raw.githubusercontent.com/EmixamPP/synology-ddns-gandi/main/gandi_ipv6.php > /usr/syno/bin/ddns/gandi.php`
+   2. IPv4 + IPv6: `curl -w "\n" https://raw.githubusercontent.com/EmixamPP/synology-ddns-gandi/main/gandi_ipv6.php > /usr/syno/bin/ddns/gandi.php`
 3. Update file permissions: `chmod 755 /usr/syno/bin/ddns/gandi.php`
 4. Add it to the provider list: `curl -w "\n" https://raw.githubusercontent.com/EmixamPP/synology-ddns-gandi/main/ddns_provider.conf >> /etc.defaults/ddns_provider.conf`
 
