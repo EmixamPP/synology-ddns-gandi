@@ -5,6 +5,8 @@ This is a native integration. The advantage over a task scheduled every X hours 
 
 I provide two modules, an IPv4 only version, which is supposed to be the only possibility with the current DSM release. But I also provide a IPv4 + IPv6 version which fetches the IPv6 of the default gateway. Therefore, you do not have the choice like with the IPv4. Consequently, if the IPv6 change, but not the IPv4, the record will not be updated. However, the service will update both IPs once every 24 hours.
 
+If the record does not exist in the DNS zone, it will be created for you. Also, the script keeps the TTL you configured through the Gandi web admin interface. 
+
 Since the information required are not standard, the field names in the Synology interface do not necessarily match the inputs. But I explain everything in the setup section. 
 
 The installation is simple, you download and write the code directly from GitHub using curl.
@@ -19,7 +21,7 @@ The installation is simple, you download and write the code directly from GitHub
 5. Add it to the provider list: `curl -w "\n" https://raw.githubusercontent.com/EmixamPP/synology-ddns-gandi/main/ddns_provider.conf >> /etc.defaults/ddns_provider.conf`
 
 ## Setup
-1. Obtain your Gandi api key from your Gandi account's security page
+1. Obtain your Gandi API key from the security page of your Gandi account
 2. Let your fully qualified domain (fqdn) name be: example.com 
 3. Let the subdomain that you want to redirect be all: @
 4. Then fill the Synology DDNS configuration as follows:
