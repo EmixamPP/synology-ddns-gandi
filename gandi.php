@@ -59,7 +59,7 @@ if ($argc !== 5) {
 }
 
 $rrset_name = (string)$argv[1];
-$apikey = (string)$argv[2];
+$pat = (string)$argv[2];
 $fqdn = (string)$argv[3];
 $ipv4 = (string)$argv[4];
 
@@ -76,6 +76,6 @@ if (!filter_var($ipv4, FILTER_VALIDATE_IP, FILTER_FLAG_IPV4)) {
 }
 
 $url = 'https://api.gandi.net/v5/livedns/domains/' . $fqdn . '/records/' . $rrset_name . '/A';
-$headers = array('Authorization:Apikey ' . $apikey, 'Content-Type:application/json');
+$headers = array('Authorization:Bearer ' . $pat, 'Content-Type:application/json');
 $ttl = get_record_ttl($url, $headers);
 update_record($url, $headers, $ipv4, $ttl);
